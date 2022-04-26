@@ -45,6 +45,14 @@
 </head>
 <!-- 2021.12.30 end -->
 <body>
+    <div class="loading">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <h2>Loading...</h2>
+        </div>
+    </div>
 
     <nav id="nav">
         <div class="menu">
@@ -88,7 +96,7 @@
                 <div class="sns">
                     <p>SOCIAL MEDLA</p>
                     <ul>
-                        <li><a href="#"><em><i class="fab fa-facebook-f"></i></em></a></li>
+                        <li><a href="https://www.facebook.com/dhgh9590/" target="blank"><em><i class="fab fa-facebook-f"></i></em></a></li>
                         <li><a href="#"><em><i class="fab fa-twitter"></i></em></a></li>
                         <li><a href="#"><em><i class="fab fa-instagram"></i></em></a></li>
                         <li><a href="https://github.com/dhgh9590" target="blank"><em><i class="fab fa-github"></i></em></a></li>
@@ -413,34 +421,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
     <script src="js/index.js"></script>
     <script>
+
         let imgBox = document.querySelector(".title .img_box");
         let titleP1 = document.querySelector(".title .text_box .p1");
         let titleP2 = document.querySelector(".title .text_box .p2");
         let titleEm = document.querySelector(".title .text_box em");
         let scroll = document.querySelector(".scroll");
         let sns = document.querySelector(".sns");
+        let nav = document.querySelector("#nav");
 
         window.onload = function(){
-            imgBox.classList.add("show");
-            setTimeout(function(){
-                titleP1.classList.add("show");
-            },300);
+            const body = document.querySelector('body');
+            $(".loading").delay('3000').fadeOut();
 
             setTimeout(function(){
-                titleEm.classList.add("show");
-            },600);
+                imgBox.classList.add("show");
+                setTimeout(function(){
+                    nav.classList.add("active");
+                },1500);
 
-            setTimeout(function(){
-                titleP2.classList.add("show");
-            },900);
+                setTimeout(function(){
+                    titleP1.classList.add("show");
+                },300);
 
-            setTimeout(function(){
-                scroll.classList.add("show");
-            },1200);
+                setTimeout(function(){
+                    titleEm.classList.add("show");
+                },600);
 
-            setTimeout(function(){
-                sns.style.opacity = 1;
-            },2500);
+                setTimeout(function(){
+                    titleP2.classList.add("show");
+                },900);
+
+                setTimeout(function(){
+                    scroll.classList.add("show");
+                },1200);
+
+                setTimeout(function(){
+                    sns.style.opacity = 1;
+                },2500);
+                body.style.overflow = 'visible';
+            },2700);
+
         }
 
         gsap.from("#section1 .bg_text",{
